@@ -1,6 +1,6 @@
 package APT201;
 
-public class Circuits {
+public class circuits {
         public int howLong(String[] connects, String[] costs) {
                 int N = connects.length;
                 int cost[][] = new int[N][N];
