@@ -46,8 +46,9 @@ public class TournamentRanker {
 	}
 	
 	public static void main(String[] args){
-		l		String[] names = {"RODDICK", "SCHUETTLER", "FERREIRA", "AGASSI" };
+		String[] names = {"RODDICK", "SCHUETTLER", "FERREIRA", "AGASSI" };
 		String[] lostTo = {"SCHUETTLER", "AGASSI", "AGASSI", "" };
+        TournamentRanker TR = new TournamentRanker();
 		String[] rT = TR.rankTeams(names, lostTo);
 		System.out.println(rT);
 	}

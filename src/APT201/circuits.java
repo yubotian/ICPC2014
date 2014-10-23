@@ -42,7 +42,7 @@ public class circuits {
           String[] dependencies = {"1 2", "2", ""};
           String[] weights = {"5 3", "7", ""};
           
-          Circuits c = new Circuits();
+          circuits c = new circuits();
           int result1 = c.howLong(dependencies, weights); 
           System.out.printf("Expected 12, got %d", result1);
   }
