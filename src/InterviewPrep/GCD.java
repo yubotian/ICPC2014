@@ -1,3 +1,5 @@
+package InterviewPrep;
+
 import java.util.*;
 /**
  * Created by Yubo on 10/23/14.
@@ -8,7 +10,7 @@ public class GCD {
         System.out.println("Enter first/second int");
         int x = in.nextInt();
         int y = in.nextInt();
-        System.out.printf("GCD is : %d", go(x,y) );
+        System.out.printf("InterviewPrep.GCD is : %d", go(x,y) );
 
     }
 

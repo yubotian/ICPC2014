@@ -1,4 +1,8 @@
-import java.util.*;
+package InterviewPrep;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  * Created by Yubo on 10/23/14.
  */

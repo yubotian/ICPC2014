@@ -1,3 +1,5 @@
+package InterviewPrep;
+
 import java.util.Scanner;
 
 /**
