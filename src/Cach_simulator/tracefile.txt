@@ -1,0 +1,8 @@
+store 0x1a25bb 2 c77e
+store 0x1a25bb 1 hh
+store 0xd5316f 4 llmmnnbb
+load 0x1a25bb 1
+load 0x1a25bc 1
+load 0x1a25bb 5
+load 0xd5316f 4
+load 0xd5316f 2

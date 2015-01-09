@@ -1,0 +1,11 @@
+store 0x1a2500 1 c7
+store 0x1a3000 1 c2
+store 0x233b00 1 c3
+store 0x1e3b00 1 b2
+load 0x1a2500 1
+load 0x1a3000 1
+load 0x233b00 1
+load 0x1e3b00 1
+load 0x1a2500 1
+load 0x3b2500 1
+load 0x1a3000 1
