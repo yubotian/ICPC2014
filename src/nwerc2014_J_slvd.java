@@ -7,11 +7,11 @@ import java.util.Scanner;
 
 //Judging Troubles
 
-public class nwerc_J {
+public class nwerc2014_J_slvd {
     Scanner in = new Scanner(System.in);
 
     public static void main(String args[]){
-        new nwerc_J().go();
+        new nwerc2014_J_slvd().go();
     }
 
     public void go(){
