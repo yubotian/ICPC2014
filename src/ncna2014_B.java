@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
+ * preorder traversals
+ *
  * Created by Yubo on 2/3/15.
  */
 public class ncna2014_B {
@@ -10,55 +12,49 @@ public class ncna2014_B {
 
     public static void main(String[] args){
         new ncna2014_B().go();
-
     }
-
 
     private void go(){
         Scanner in = new Scanner(System.in);
-        int count = 0;
+        int c = 0;
 
         while(in.hasNextInt()){
-            ArrayList<Integer> values = new ArrayList<Integer>();
+            ArrayList<Integer> line = new ArrayList<Integer>();
             int cur = in.nextInt();
             while(cur>=0){
-                values.add(cur);
+                line.add(cur);
                 cur = in.nextInt();
             }
-            lst = new Integer[values.size()];
-            lst = values.toArray(lst);
-            count++;
-            System.out.print("Case ");
-            System.out.print(count);
-            System.out.print(": ");
-            if(search(0,values.size()-1)){
-                System.out.println("yes");
+            lst = new Integer[line.size()];
+            lst = line.toArray(lst);
+            c++;
+
+            if(preorder_traversal(0,line.size()-1)){
+                System.out.printf("Case %d: yes\n",c);
             }
             else{
-                System.out.println("no");
+                System.out.printf("Case %d: no\n",c);
             }
         }
         in.close();
 
     }
 
-    boolean search(int start, int stop){
-        if(stop-start<2){
+    boolean preorder_traversal(int start, int stop){
+        if(stop-start<=1){ //basecase
             return true;
         }
-        int first = lst[start];
-        int larger=stop+1; //If there's no right subtree, this would be the
+        int rt = lst[start];
+        int right = stop+1;
         for(int i=start+1;i<=stop;i++){
-            if(lst[i]>first){
-                larger = i;
+            if(lst[i]>rt){
+                right = i; //rt of the right subtree
                 break;
-            } // to find the start of the right subtree
+            }
         }
-        for(int k=larger+1; k<=stop; k++){
-            if(lst[k]<=first) return false;
+        for(int k=right+1; k<=stop; k++){
+            if(lst[k]<=rt) return false;
         }
-        return search(start+1,larger-1) && search(larger,stop);
+        return preorder_traversal(start+1,right-1) && preorder_traversal(right,stop); //check both subtree recursively
     }
-
-
 }
