@@ -23,6 +23,18 @@ import java.util.Scanner;
 2 16 4 8 2
 3
 2 2 2
+
+
+
+
+null ptr error:
+7
+1 4 1 2 16 8 32  //slvd
+
+wrong out put error(need to try both side)
+13
+1 8 1 2 16 1 2 1 2 4 8 2 16
+
 */
 
 public class cerc2014_E {
@@ -49,7 +61,9 @@ public class cerc2014_E {
     block head;
 
     public void go(){
-        int cc = in.nextInt();
+        //int cc = in.nextInt();
+        //for testcase use cc =1;
+        int cc = 1;
 
         ArrayList<ArrayList<Integer>> input = new ArrayList<ArrayList<Integer>>();
 
@@ -82,13 +96,38 @@ public class cerc2014_E {
             block b = new block(myArray.get(1));
             append_to_right(b);
 
-            if (myArray.size() == 2 && myArray.get(0)==myArray.get(1)){System.out.println("rr");continue;}
+            try_compress_from_head();
+
+            if (myArray.size() == 2 && myArray.get(0)== myArray.get(1)){System.out.println("rr");continue;}
 
             //System.out.println(tail.v);
 
+//            System.out.println("\ntest case is :***************************************\n");
+//            for (int j = 0; j < myArray.size(); j++){
+//                System.out.printf("%d ",myArray.get(j));
+//            }
+//            System.out.println();
+
             for (int j = 2; j < myArray.size(); j++){
-                //System.out.printf("#%d number is: %d \n", j, myArray.get(j));
-                if (myArray.get(j) == head.v || (myArray.get(j) > tail.v && myArray.get(j) < head.v )){
+                System.out.printf("#%d number is: %d \n", j, myArray.get(j));
+
+                if(head.right == null && head.left == null){
+                    block n = new block(myArray.get(j));
+                    append_to_right(n);
+                    result[j] = 'r';
+                    try_compress_from_tail();
+                }
+
+                else if (head.v == tail.v && myArray.get(j)==head.v){
+                    //need to try both side
+                    //argument: previous steps, myArray, index j should be next number
+                }
+
+
+                else if (myArray.get(j) == head.v || (myArray.get(j) > tail.v && myArray.get(j) < head.v )){
+
+                    //System.out.printf("where is null pointer?\n");
+
                     block n = new block(myArray.get(j));
                     append_to_left(n);
                     result[j] = 'l';
@@ -119,11 +158,25 @@ public class cerc2014_E {
                 }
 
                 else if (myArray.get(j) > tail.v && myArray.get(j) > head.v ){
-                    no = true;
+                    //and if we append it to the greater side, the end will be "sanwitched by two number greater than itself"
+                    if (greater_than_all(myArray.get(j))){
+                        block n = new block(myArray.get(j));
+                        if(tail.v>head.v){
+                            append_to_right(n);
+                            result[j] = 'r';
+                        } else {
+                            append_to_left(n);
+                            result[j] = 'l';
+                        }
+                    } else {
+                        no = true;
+                    }
+
+                    //no = true;
                     //System.out.println("no");
                 }
 
-                //printlist();
+                printlist();
 
 
             }
@@ -140,11 +193,8 @@ public class cerc2014_E {
             }
        }
 
-
-
-
-
     }
+
 
     private void append_to_right(block b){
         tail.right = b;
@@ -166,8 +216,8 @@ public class cerc2014_E {
             head = head.right;
             head.v = head.v*2;
             head.left = null;
-            //System.out.printf("after compression from head: " );
-            //printlist();
+            System.out.printf("after compression from head: " );
+            printlist();
             try_compress_from_head();
         } else {
            return;
@@ -182,13 +232,27 @@ public class cerc2014_E {
             tail = tail.left;
             tail.v = tail.v*2;
             tail.right = null;
-            //System.out.printf("after compression from tail: " );
-            //printlist();
+            System.out.printf("after compression from tail: " );
+            printlist();
             try_compress_from_tail();
         } else{
             return;
         }
     }
+
+    private boolean greater_than_all(int j){
+        boolean greatest = true;
+        block temp = head;
+        while(temp.right.right != null){
+            if (temp.v < j){
+                temp = temp.right;
+            } else {
+                return false;
+            }
+        }
+        return greatest;
+    }
+
 
     private void printlist(){
         block temp = head;
