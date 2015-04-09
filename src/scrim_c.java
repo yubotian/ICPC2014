@@ -34,7 +34,7 @@ public class scrim_c {
 
 
             DecimalFormat df = new DecimalFormat("0.00");
-            return df.format(number).replaceAll("\\.00$", "");
+            //return df.format(number).replaceAll("\\.00$", "");
 
 
             System.out.println();
