@@ -1,5 +1,3 @@
-package kmk_ola;
-
 import java.util.*;
 import java.util.Scanner;
 
