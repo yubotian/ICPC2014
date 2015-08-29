@@ -1,3 +1,5 @@
+package spr2015submissions;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 

@@ -1,8 +1,7 @@
-//google_codejam_a.java
+package spr2015submissions;//google_codejam_a.java
 
 
 import java.util.Scanner;
-import java.util.*;
 
 public class google_codejam_a {
 

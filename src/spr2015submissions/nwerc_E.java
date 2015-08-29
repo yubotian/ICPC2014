@@ -1,4 +1,4 @@
-//nwerc_E.java
+package spr2015submissions;//nwerc_E.java
 
 
 import java.util.*;

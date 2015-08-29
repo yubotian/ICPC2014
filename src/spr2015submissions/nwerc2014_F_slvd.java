@@ -1,4 +1,4 @@
-/*
+package spr2015submissions;/*
  * Created by Yubo on 1/26/15.
  *
  * use randomnized algorithm

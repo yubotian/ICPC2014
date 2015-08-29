@@ -1,4 +1,4 @@
-/**
+package spr2015submissions; /**
  * Created by Yubo on 4/20/15.
  */
 import java.util.Scanner;

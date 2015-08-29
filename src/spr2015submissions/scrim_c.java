@@ -1,5 +1,5 @@
-import java.util.ArrayList;
-import java.util.List;
+package spr2015submissions;
+
 import java.util.Scanner;
 import java.text.DecimalFormat;
 import java.math.BigDecimal;

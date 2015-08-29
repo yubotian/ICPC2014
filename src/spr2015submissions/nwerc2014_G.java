@@ -1,3 +1,5 @@
+package spr2015submissions;
+
 /**
  * Created by Yubo on 2/9/15.
  *
