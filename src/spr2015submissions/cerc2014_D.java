@@ -12,7 +12,7 @@ import java.util.*;
  */
 
 
-public class Wheels {
+class Wheels {
     
     Wheel[] wheels; // storing all the 
     
