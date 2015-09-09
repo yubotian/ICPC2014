@@ -1,4 +1,4 @@
-package kmk_ola;
+package InterviewPrep;
 
 /**
  * Created by Yubo on 10/21/14.
